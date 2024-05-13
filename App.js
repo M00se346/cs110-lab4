@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Article from './components/Article';
-import Title from './components/Title';
-import Sidebar from './components/Sidebar';
+import Article from './lab5/src/components/Article';
+import Title from './lab5/src/components/Title';
+import Sidebar from './lab5/src/components/Sidebar';
 
 function App(){
     const [title, setTitle] = useState["asdfghjkl"]
