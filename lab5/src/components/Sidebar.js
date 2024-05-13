@@ -1,66 +1,33 @@
-import React from 'react'
+import React, { useState , useEffect} from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({ onTermChange }) => {
+    const [timeFilter, setTimeFilter] = useState({ day: true, week: false, month: false });
+    const [categorySortby, setCategorySortby] = useState({ emailed: true, shared: false, viewed: false });
 
-    const buttonClick=()=>{
-        
-    }
+    const timeFilterClick = (time) => {
+        onTermChange(time, categorySortby); // Pass both time filter and category sortby
+        setTimeFilter({ day: time === '1', week: time === '7', month: time === '30' });
+    };
 
+    const categorySortbyClick = (category) => {
+        onTermChange(timeFilter, category); // Pass both time filter and category sortby
+        setCategorySortby({ emailed: category === 'emailed', shared: category === 'shared', viewed: category === 'viewed' });
+    };
 
-
-  return (
-    <div>
-        sidebar
-
-      
-      {/* <form action="#">
-    <b>Sort By:</b><br /> */}
-    {/* Call getResponse_SB(0) function when component mounts */}
-    {/* {getResponse_SB(0)}
-    <div className="form-check">
-        <input className="form-check-input" type="radio" name="group1" onClick={() => getResponse_SB(0)} defaultChecked />
-        <label className="form-check-label" htmlFor="flexRadioDefault2">
-            Most Viewed
-        </label>
-    </div>
-    <div className="form-check">
-        <input className="form-check-input" type="radio" name="group1" onClick={() => getResponse_SB(1)} />
-        <label className="form-check-label" htmlFor="flexRadioDefault1">
-            Most Shared
-        </label>
-    </div>
-    <div className="form-check">
-        <input className="form-check-input" type="radio" name="group1" onClick={() => getResponse_SB(2)} />
-        <label className="form-check-label" htmlFor="flexRadioDefault1">
-            Most Emailed
-        </label>
-    </div>
-
-    <br />
-    <b>Time Frame:</b><br />
-    <div className="form-check">
-        <input className="form-check-input2" type="radio" name="group2" onClick={() => getResponse_TF(0)} defaultChecked />
-        <label className="form-check-label" htmlFor="flexRadioDefault2">
-            Day
-        </label>
-    </div>
-    <div className="form-check">
-        <input className="form-check-input2" type="radio" name="group2" onClick={() => getResponse_TF(1)} />
-        <label className="form-check-label" htmlFor="flexRadioDefault1">
-            Week
-        </label>
-    </div>
-    <div className="form-check">
-        <input className="form-check-input2" type="radio" name="group2" onClick={() => getResponse_TF(2)} />
-        <label className="form-check-label" htmlFor="flexRadioDefault1">
-            Month
-        </label>
-    </div>
-</form> */}
-      
-    
-    </div>
-  )
+    return (
+        <>
+        <div className="Filter">
+            <button onClick={() => timeFilterClick('1')} className={timeFilter.day ? 'selected' : ''}>Day</button>
+            <button onClick={() => timeFilterClick('7')} className={timeFilter.week ? 'selected' : ''}>Week</button>
+            <button onClick={() => timeFilterClick('30')} className={timeFilter.month ? 'selected' : ''}>Month</button>
+        </div>
+        <div className="Sort By">
+            <button onClick={() => categorySortbyClick('emailed')} className={categorySortby.emailed ? 'selected' : ''}>Emailed</button>
+            <button onClick={() => categorySortbyClick('shared')} className={categorySortby.shared ? 'selected' : ''}>Shared</button>
+            <button onClick={() => categorySortbyClick('viewed')} className={categorySortby.viewed ? 'selected' : ''}>Viewed</button>
+        </div>
+        </>
+    );
 }
 
 export default Sidebar

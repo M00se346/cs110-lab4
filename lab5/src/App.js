@@ -12,7 +12,7 @@ import Article from './components/Article'
 
 function App() {
   
-  const NYT_link = "https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=hd2doA0T1atpRi9Vs6foDnEjnrNRDREo"
+  //const NYT_link = "https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=hd2doA0T1atpRi9Vs6foDnEjnrNRDREo"
 
 
   
@@ -78,6 +78,15 @@ function App() {
   //   //setarticles
   // }
 
+  const [term1, setTerm1] = useState('emailed'); // Initial term
+  const [term2, setTerm2] = useState('1'); // Initial term
+
+
+  // Function to update term
+  const handleTermChange = (newTerm1, newTerm2) => {
+      setTerm1(newTerm1);
+      setTerm2(newTerm2);
+  };
   
 
 
@@ -93,17 +102,20 @@ function App() {
       <div className = "mainContent">
         <div className = "left_box">
         <div className ="inner_left_box">
-          <Sidebar/>
+          <Sidebar onTermChange={handleTermChange} />
           </div>
         </div>
 
         <div className = "right_box">
-          <Article/>
-          <Article/>
+
+        <div>
+            <Article term1={term1} term2={term2} /> 
+        </div>
+
+          {/* <Article/> */}
           {/* {articlesStatic.map((article)=>{
             return<Article title={article.title} description={article.description} time={article.time}/>
           })} */}
-          
         </div>
       </div>
 
