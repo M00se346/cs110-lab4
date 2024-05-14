@@ -109,7 +109,10 @@ function App() {
         <div className = "right_box">
 
         <div>
-            <Article term1={term1} term2={term2} /> 
+          <div className = "all_article_content">
+            <Article term1={term1} term2={term2} index1={0} index2={3} /> {/* change the index depending  */}
+            <Article term1={term1} term2={term2} index1={3} index2={6} /> 
+          </div>
         </div>
 
           {/* <Article/> */}
