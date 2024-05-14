@@ -78,19 +78,31 @@ function App() {
   //   //setarticles
   // }
 
-  const [term1, setTerm1] = useState('emailed'); // Initial term
-  const [term2, setTerm2] = useState('1'); // Initial term
+  // const [term1, setTerm1] = useState('emailed'); // Initial term
+  // const [term2, setTerm2] = useState('1'); // Initial term
 
 
-  // Function to update term
-  const handleTermChange = (newTerm1, newTerm2) => {
-      setTerm1(newTerm1);
-      setTerm2(newTerm2);
-  };
+  // // Function to update term
+  // const handleTermChange = (newTerm1, newTerm2) => {
+  //     setTerm1(newTerm1);
+  //     setTerm2(newTerm2);
+  // };
   
 
+  //FOR FILTER BUTTONS ONLY
+    const [timeInterval, setTimeInterval] = useState('day');
+    const [category, setCategory] = useState('emailed');
 
-  //setTitle("updated string")
+    const handleTimeIntervalChange = (newTimeInterval) => {
+        setTimeInterval(newTimeInterval);
+    };
+
+    const handleCategoryChange = (newCategory) => {
+        setCategory(newCategory);
+    };
+  //END OF FILTER BUTTONS
+
+
 
   return (
     <div className="App">
@@ -102,20 +114,21 @@ function App() {
       <div className = "mainContent">
         <div className = "left_box">
         <div className ="inner_left_box">
-          <Sidebar onTermChange={handleTermChange} />
+          <Sidebar 
+                timeInterval={timeInterval} 
+                category={category} 
+                onTimeIntervalChange={handleTimeIntervalChange} 
+                onCategoryChange={handleCategoryChange} 
+            />
           </div>
         </div>
 
         <div className = "right_box">
 
         <div>
-            <Article term1={term1} term2={term2} /> 
+            {/* <Article term1={term1} term2={term2} />  */}
+            <Article term1={timeInterval} term2={category} />
         </div>
-
-          {/* <Article/> */}
-          {/* {articlesStatic.map((article)=>{
-            return<Article title={article.title} description={article.description} time={article.time}/>
-          })} */}
         </div>
       </div>
 
