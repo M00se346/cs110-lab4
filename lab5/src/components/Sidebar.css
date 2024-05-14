@@ -1,5 +1,5 @@
 .left_box{
-    background-color: grey;
+    background-color: rgb(30, 32, 33);
     width: 300px;
     padding: 0px 10px 20px 30px;
     border-radius: 10px;
@@ -10,7 +10,7 @@
 }
 
 .inner_left_box{
-    background-color: rgb(251, 251, 251);
+    background-color: rgba(211, 211, 211, 0.5);
     width: 300px;
     padding: 10px 10px 20px 30px;
     border-radius: 10px;
