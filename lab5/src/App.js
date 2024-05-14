@@ -106,9 +106,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Title title={title} setTitle={setTitle}/>
-        <button onClick={()=>setTitle("new text")}>Click me</button>
+      <header className="appHeader">
+        <Title term1={timeInterval} term2={category} />
       </header>
 
       <div className = "mainContent">
@@ -128,8 +127,8 @@ function App() {
         <div>
 
           <div className = "all_article_content">
-            <Article term1={term1} term2={term2} index1={0} index2={3} /> {/* change the index depending  */}
-            <Article term1={term1} term2={term2} index1={3} index2={6} /> 
+            <Article term1={timeInterval} term2={category} index1={0} index2={3} /> {/* change the index depending  */}
+            <Article term1={timeInterval} term2={category} index1={3} index2={6} /> 
           </div>
 
         </div>
