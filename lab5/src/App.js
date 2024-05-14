@@ -106,9 +106,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Title title={title} setTitle={setTitle}/>
-        <button onClick={()=>setTitle("new text")}>Click me</button>
+      <header className="appHeader">
+        <Title term1={timeInterval} term2={category} />
       </header>
 
       <div className = "mainContent">
