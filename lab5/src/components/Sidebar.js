@@ -5,7 +5,7 @@ import './Sidebar.css';
 import SearchBar from './SearchBar';
 
 
-const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange, setPossiblePages, setSearchTerm}) => {
+const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange, setPossiblePages, setSearchTerm, setPage}) => {
 
     const[day, setDay] = useState(true);
     const[week, setWeek] = useState(false);
@@ -25,6 +25,7 @@ const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChang
             setErrorMessage(''); // reset error message
             setSearchTerm(term); 
             setPossiblePages(Math.ceil(term/6));
+            setPage(1);
         }
     };
   

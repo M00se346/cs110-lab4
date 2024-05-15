@@ -20,6 +20,7 @@ function SearchBar({ onSearch }) {
         value={searchTerm}
         onChange={handleChange}
       />
+	  <p></p>
       <button type="submit">Search</button>
     </form>
   );
