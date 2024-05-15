@@ -5,7 +5,7 @@ import './Sidebar.css';
 import SearchBar from './SearchBar';
 
 
-const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange }) => {
+const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange, setPossiblePages, setSearchTerm}) => {
 
     const[day, setDay] = useState(true)
     const[week, setWeek] = useState(false)
@@ -14,7 +14,7 @@ const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChang
     const[viewed, setViewed] = useState(false)
     const[shared, setShared] = useState(false)
     const [errorMessage, setErrorMessage] = useState('');
-    const [searchTerm, setSearchTerm] = useState('');
+    //const [searchTerm, setSearchTerm] = useState('');
 
     
     const handleSearch = (term) => {
@@ -23,10 +23,9 @@ const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChang
         } 
         else{
             setErrorMessage(''); // reset error message
-            setSearchTerm(term);  
+            setSearchTerm(term); 
+            setPossiblePages(Math.ceil(term/6));
         }
-            
-      
     };
   
 
