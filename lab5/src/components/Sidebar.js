@@ -7,12 +7,12 @@ import SearchBar from './SearchBar';
 
 const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange }) => {
 
-    const[day, setDay] = useState(true)
-    const[week, setWeek] = useState(false)
-    const[month, setMonth] = useState(false)
-    const[emailed, setEmailed] = useState(true)
-    const[viewed, setViewed] = useState(false)
-    const[shared, setShared] = useState(false)
+    const[day, setDay] = useState(true);
+    const[week, setWeek] = useState(false);
+    const[month, setMonth] = useState(false);
+    const[emailed, setEmailed] = useState(true);
+    const[viewed, setViewed] = useState(false);
+    const[shared, setShared] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
 

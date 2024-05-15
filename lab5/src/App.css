@@ -70,6 +70,8 @@ body {background-color: rgb(30, 32, 33);}
     background-color: rgba(255, 182, 193, 0);
     border-radius: 10px;
     gap: 1px;
+
+    /* flex-basis: auto;  */
     
 }
 
@@ -132,17 +134,23 @@ img{
 
 
 
-@media (max-width: 700px) {
-    .screen {
+@media (max-width: 800px) {
+    .mainContent {
         flex-direction: column; 
     }
     
-    .left_box, .right_box {
+    .right_box {
         /*flex-basis: 100%;  Each box takes up 100% of the container width */
         flex-basis: auto;
         max-height: fit-content;
         max-width: fit-content;
     }
+
+    .left_box{
+        flex-basis: auto;
+        max-height: fit-content;
+        max-width: fit-content;
+        margin: 0 auto;     }
 
 }
 

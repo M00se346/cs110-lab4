@@ -90,7 +90,7 @@ function App() {
   
 
   //FOR FILTER BUTTONS ONLY
-    const [timeInterval, setTimeInterval] = useState('day');
+    const [timeInterval, setTimeInterval] = useState('1');
     const [category, setCategory] = useState('emailed');
 
     const handleTimeIntervalChange = (newTimeInterval) => {
