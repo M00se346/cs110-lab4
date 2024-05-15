@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 
 import './Sidebar.css';
+import SearchBar from './SearchBar';
 
 
 const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChange }) => {
@@ -12,7 +13,22 @@ const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChang
     const[emailed, setEmailed] = useState(true)
     const[viewed, setViewed] = useState(false)
     const[shared, setShared] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
 
+    
+    const handleSearch = (term) => {
+        if(term > 15){
+            setErrorMessage('Search term is greater than 15.');
+        } 
+        else{
+            setErrorMessage(''); // reset error message
+            setSearchTerm(term);  
+        }
+            
+      
+    };
+  
 
     return(
        <section>
@@ -29,10 +45,12 @@ const Sidebar = ({ timeInterval, category, onTimeIntervalChange, onCategoryChang
              {/* Time interval radio buttons */}
              <div className="button_container">
 
-                <div className="searchbar">
-                    <p>enter searchbar here</p>
-                    <button>search button here</button>
-                </div>
+             <div className="searchbar">
+                <p></p>
+                <SearchBar onSearch={handleSearch} />
+                <p>{errorMessage}</p> {/* Display the search term error message as needed */}
+                
+            </div>
                 
 
                 {/* Category radio buttons */}
