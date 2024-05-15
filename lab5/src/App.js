@@ -194,8 +194,8 @@ const displayPageButtons = () => {
                 onCategoryChange={handleCategoryChange} 
                 setPossiblePages={setPossiblePages}
                 setSearchTerm={setSearchTerm}
+                setPage = {setPage}
             />
-            <p>{possiblePages}</p>
           </div>
         </div>
 

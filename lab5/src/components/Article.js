@@ -6,6 +6,7 @@ import React, {useState, useEffect} from 'react'
 const Article = ({term1, term2, index1, index2}) => {
     const [articles, setArticles] = useState([]);
     const [term, setTerm] = useState('1');
+    const [articleNum, setArticleNum] = useState('0');
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +29,6 @@ const Article = ({term1, term2, index1, index2}) => {
         fetchArticles();
     }, [term1, term2]); // Fetch articles whenever term changes
 
-
     return(
         <section>
             <div className="article_container">
@@ -40,13 +40,14 @@ const Article = ({term1, term2, index1, index2}) => {
                         
                         const { title, published_date, _id, media, abstract } = article;
                         const imageUrl = media?.[0]?.['media-metadata']?.[0]?.url || '';
+                        const articleNum = articles.indexOf(article) +1;
 
                         return (
                             <div className="article_box" key={_id}>
                             <article key={_id}>
                                 <div className="top">
                                     
-                                    <h2 className="inner_top">{title}</h2>
+                                    <h2 className="inner_top"> {articleNum}{'.'} {title}</h2>
                                     <p className="inner_top_date">{published_date}</p>
                                 </div>
                                 <div className="bottom">

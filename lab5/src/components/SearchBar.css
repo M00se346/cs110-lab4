@@ -4,14 +4,18 @@
   }
   
   button {
-	padding: 5px 10px 5px 10px;
-	background-color: #007bff;
+	padding: 7px 7px 7px 7px;
+    border-radius: 5px;
+	background:rgb(98, 154, 186);
 	color: white;
 	border: none;
 	cursor: pointer;
   }
   
   button:hover {
-	background-color: #0056b3;
+	background:rgb(146, 178, 197);
   }
-  
+
+  button:checked{
+	background:rgb(146, 178, 197);
+  }
